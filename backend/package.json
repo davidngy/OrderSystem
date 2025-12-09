@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate",
+    "test": "vitest --run",
+    "lint": "eslint 'src/**/*.ts'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.2",
+    "@types/pg": "^8.15.6",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.8",
+    "eslint": "^9.39.1",
+    "express": "^5.2.1",
+    "install": "^0.13.0",
+    "nodemon": "^3.1.11",
+    "npm": "^11.6.4",
+    "prettier": "^3.7.4",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.0",
+    "pg": "^8.16.3",
+    "pg-pool": "^3.10.1"
+  }
+}

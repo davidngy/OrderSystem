@@ -1,0 +1,51 @@
+# ==========================
+# Node dependencies
+# ==========================
+**/node_modules/
+
+# ==========================
+# Build outputs (Frontend + Backend)
+# ==========================
+**/dist/
+**/build/
+
+# Vite / React artifacts
+dist-ssr/
+
+# ==========================
+# Logs
+# ==========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# ==========================
+# Drizzle
+# ==========================
+# Cache + artifacts (NICHT migrations!)
+.drizzle/
+
+# KEEP migrations tracked:
+#!src/db/migrations/
+
+# ==========================
+# Environment variables
+# ==========================
+.env
+.env.*
+!.env.example  # diese beibehalten, damit andere wissen, welche ENV-Variablen sie brauchen
+
+# ==========================
+# System / Editor junk
+# ==========================
+.DS_Store
+Thumbs.db
+
+# VSCode (erlaubt extensions.json)
+.vscode/*
+!.vscode/extensions.json
+
+.idea/
+*.swp
