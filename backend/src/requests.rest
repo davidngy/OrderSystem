@@ -1,0 +1,25 @@
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "narutosss",
+    "password": "test123"
+}
+
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "narutosss",
+    "password": "test123"
+}
+
+###
+
+POST http://localhost:3000/api/auth/token
+Content-Type: application/json
+
+{
+   "refreshToken": "409aeccfd18bd83f25a6ebeb3334a1751f09149c87de0863ffc73cca6244cb89"
+}
