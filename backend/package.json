@@ -18,6 +18,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.10.2",
     "@types/pg": "^8.15.6",
     "dotenv": "^17.2.3",
@@ -33,7 +34,9 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "argon2": "^0.44.0",
     "drizzle-orm": "^0.45.0",
+    "jsonwebtoken": "^9.0.3",
     "pg": "^8.16.3",
     "pg-pool": "^3.10.1"
   }

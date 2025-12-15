@@ -21,5 +21,19 @@ POST http://localhost:3000/api/auth/token
 Content-Type: application/json
 
 {
-   "refreshToken": "409aeccfd18bd83f25a6ebeb3334a1751f09149c87de0863ffc73cca6244cb89"
+    "refreshToken": "9cac6d430d32bf353bff87c5190c0b9dd4c42b9c02a49173408c95a26b4cc134"
 }
+
+###
+
+POST http://localhost:3000/api/auth/logout
+Content-Type: application/json
+
+{
+      "refreshToken": "9cac6d430d32bf353bff87c5190c0b9dd4c42b9c02a49173408c95a26b4cc134"
+}
+
+###
+GET http://localhost:3000/protected
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlNDJjZTFlOS02OGZlLTRjYzgtOGE2ZC05MjVhYjhlMDUxMjYiLCJpYXQiOjE3NjU3NjM0MzksImV4cCI6MTc2NTc2MzQ1OX0.oCAaV7xDT7ROVzTHW0nS31lo7t2ZMPJnXDk_j52Hj10
+

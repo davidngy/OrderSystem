@@ -3,7 +3,7 @@ import type { NewUser } from '../lib/db/schema';
 import config from '../config/config';
 import { findUserByUsername } from '../lib/db/queries/users';
 import { checkPasswordHash, makeRefreshToken, makeJWT, hashPassword } from '../lib/auth';
-import { createRefreshToken } from '../lib/db/queries/auth';
+import { createRefreshToken, deleteRefreshToken } from '../lib/db/queries/auth';
 import { createUser } from '../lib/db/queries/users';
 import { getRefreshToken } from '../lib/db/queries/auth';
 
@@ -87,6 +87,14 @@ export async function refreshToken(req: Request, res: Response) {
 }
 
 export async function logout(req: Request, res: Response) {
+  type parameter = {
+    refreshToken: string
+  }
 
+  const parameter: parameter = req.body;
+  if(parameter.refreshToken == null) return res.sendStatus(401);
+  const response = await deleteRefreshToken(parameter.refreshToken);
+  if(!response) return res.sendStatus(401)
+  res.sendStatus(204)
 };
 

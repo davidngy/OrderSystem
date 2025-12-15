@@ -3,7 +3,7 @@ import { validateJWT } from '../lib/auth';
 import config from '../config/config';
 
 export type AuthenticatedRequest = Request & {
-  user: {
+  user?: {
     id: string;
     role?: "admin" | "waiter";
   }
