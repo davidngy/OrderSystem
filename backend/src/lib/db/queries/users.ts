@@ -31,6 +31,13 @@ export async function findUserByUsername(username: string) {
   return result
 }
 
+export async function findUserByUserID(userID: string) {
+  const [result] = await db.select()
+    .from(users)
+    .where(eq(users.id, userID));
+  return result
+}
+
 export async function UpdateUserCredentials(userID: string, password: string, username: string) {
   return db.update(users)
     .set({

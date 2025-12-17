@@ -14,8 +14,14 @@ export function authorizeToken(req: AuthenticatedRequest, res: Response, next: N
   if(!token) return res.sendStatus(401);
 
   try {
-    const userID = validateJWT(token, config.api.secret)
-    req.user = { id: userID };
+    const payload = validateJWT(token, config.api.secret)
+    if (
+      typeof payload.sub !== "string" ||
+      (payload.role !== "admin" && payload.role !== "waiter")
+    ) {
+      return res.sendStatus(401);
+    }
+    req.user = { id: payload.sub, role: payload.role };
     next();
   } catch {
     return res.sendStatus(401)
