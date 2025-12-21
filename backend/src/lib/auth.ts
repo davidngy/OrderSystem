@@ -22,7 +22,7 @@ type payload = Pick<JwtPayload, "iss" | "sub" | "iat" | "exp"> & { "role": strin
 
 export function makeJWT(user: NewUser, secret: string): string {
   const iat = Math.floor(Date.now() / 1000);
-  const exp = iat + 20; //3600 1hour
+  const exp = iat + 60; //3600 1hour
 
   const payload: payload = {
     "sub": user.id,

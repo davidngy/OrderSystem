@@ -5,7 +5,7 @@ import config from '../config/config';
 export type AuthenticatedRequest = Request & {
   user?: {
     id: string;
-    role?: "admin" | "waiter";
+    role: "admin" | "waiter";
   }
 }
 export function authorizeToken(req: AuthenticatedRequest, res: Response, next: NextFunction) {
@@ -19,6 +19,7 @@ export function authorizeToken(req: AuthenticatedRequest, res: Response, next: N
       typeof payload.sub !== "string" ||
       (payload.role !== "admin" && payload.role !== "waiter")
     ) {
+      console.log(payload.role)
       return res.sendStatus(401);
     }
     req.user = { id: payload.sub, role: payload.role };

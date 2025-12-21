@@ -39,7 +39,7 @@ export const tables = pgTable('tables', {
   currentOrderId: uuid('current_order_id')
 });
 
-export type Tables = typeof tables.$inferInsert;
+export type NewTable = typeof tables.$inferInsert;
 
 export const products = pgTable('products', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -56,7 +56,7 @@ export const products = pgTable('products', {
     .notNull(),
 });
 
-export type Products = typeof tables.$inferInsert;
+export type NewProduct = typeof tables.$inferInsert;
 
 export const orders = pgTable('orders', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -70,7 +70,7 @@ export const orders = pgTable('orders', {
   paidAt: timestamp('paid_at', { withTimezone: true }),
 });
 
-export type Orders = typeof orders.$inferInsert;
+export type NewOrder = typeof orders.$inferInsert;
 
 export const orderItems = pgTable('order_items', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -87,7 +87,7 @@ export const orderItems = pgTable('order_items', {
   // normal | storniert | paid
 });
 
-export type OrderItems = typeof orderItems.$inferInsert;
+export type NewOrderItem = typeof orderItems.$inferInsert;
 
 export const tableRelations = relations(tables, ({ one }) => ({
   currentOrder: one(orders, {

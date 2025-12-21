@@ -1,10 +1,12 @@
 import express from 'express';
 import itemRoutes from './routes/itemRoutes';
 import authRoutes from './routes/authRoutes';
+import tableRoutes from './routes/tableRoutes';
 import router from './routes/itemRoutes';
 import { authorizeToken } from './middlewares/authHandlers';
 import { Response } from 'express';
 import type { AuthenticatedRequest } from './middlewares/authHandlers';
+import { table } from 'console';
 //import { errorHandler } from './middlewares/authHandlers';
 
 const app = express();
@@ -14,6 +16,7 @@ app.use(express.json());
 // Routes
 app.use('/api/items', itemRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/table', tableRoutes);
 app.get("/protected", authorizeToken, (req: AuthenticatedRequest, res: Response) => {
   res.status(200).json({
     message: "Access granted",

@@ -2,8 +2,8 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "narutosss",
-    "password": "test123"
+    "username": "admin",
+    "password": "admin"
 }
 
 ###
@@ -37,3 +37,22 @@ Content-Type: application/json
 GET http://localhost:3000/protected
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlNDJjZTFlOS02OGZlLTRjYzgtOGE2ZC05MjVhYjhlMDUxMjYiLCJpYXQiOjE3NjU3NjM0MzksImV4cCI6MTc2NTc2MzQ1OX0.oCAaV7xDT7ROVzTHW0nS31lo7t2ZMPJnXDk_j52Hj10
 
+###
+
+POST http://localhost:3000/api/table/createTable
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjk4Yjg4YS0zYzRkLTRkZTctOTAxNy1iMGM2YWYxYjJiYzMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjYwMTk4OTIsImV4cCI6MTc2NjAxOTkxMn0.Ymn_vGVf8AtpLf8i_cOTsWlWpUNmWzQ0GVpISJjss6U
+
+{
+    "from": 1,
+    "to": 10
+}
+
+###
+
+GET http://localhost:3000/api/table/tables
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjk4Yjg4YS0zYzRkLTRkZTctOTAxNy1iMGM2YWYxYjJiYzMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjYwODYyMjQsImV4cCI6MTc2NjA4NjI4NH0._JqySlfYuNatefR4H8kdAzBgPDa1Veu5pTGsIZEU2zQ
+###
+
+GET http://localhost:3000/api/table/tables/88c80d3f-3e3a-43d3-beb0-0381f0c41335
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjk4Yjg4YS0zYzRkLTRkZTctOTAxNy1iMGM2YWYxYjJiYzMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjYwODYyMjQsImV4cCI6MTc2NjA4NjI4NH0._JqySlfYuNatefR4H8kdAzBgPDa1Veu5pTGsIZEU2zQ
