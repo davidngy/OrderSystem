@@ -36,6 +36,13 @@
       "when": 1766362257000,
       "tag": "0004_bizarre_mojo",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1766414216085,
+      "tag": "0005_bright_fenris",
+      "breakpoints": true
     }
   ]
 }

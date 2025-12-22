@@ -49,14 +49,14 @@ export const products = pgTable('products', {
     .notNull(),
 });
 
-export type NewProduct = typeof tables.$inferInsert;
+export type NewProduct = typeof products.$inferInsert;
 
 export const productVariants = pgTable('product_variants', {
   id: uuid('id').defaultRandom().primaryKey(),
   productId: uuid('product_id')
     .notNull()
     .references(() => products.id, { onDelete: 'cascade' }),
-  name: text('option_name'),
+  name: text('name'),
   price: numeric('price', { precision: 10, scale: 2 }).notNull(),
 })
 

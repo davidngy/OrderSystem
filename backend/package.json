@@ -10,7 +10,9 @@
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
     "test": "vitest --run",
-    "lint": "eslint 'src/**/*.ts'"
+    "lint": "eslint 'src/**/*.ts'",
+    "clear": "tsx src/lib/db/queries/clearingData.js",
+    "seed": "tsx src/seed/seed.js"
   },
   "keywords": [],
   "author": "",
