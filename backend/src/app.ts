@@ -6,7 +6,6 @@ import router from './routes/itemRoutes';
 import { authorizeToken } from './middlewares/authHandlers';
 import { Response } from 'express';
 import type { AuthenticatedRequest } from './middlewares/authHandlers';
-import { table } from 'console';
 //import { errorHandler } from './middlewares/authHandlers';
 
 const app = express();

@@ -15,7 +15,7 @@ export async function createTables(req: AuthenticatedRequest, res: Response) {
 
     for(let count = parameter.from;  count <= parameter.to; count++) {
         try {
-            await createTable({ number: count, status: "free" });
+            await createTable({ number: count });
         } catch (error) {
             console.error(`Table ${count} failed`, error);
         }
