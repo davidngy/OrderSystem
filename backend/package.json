@@ -12,7 +12,8 @@
     "test": "vitest --run",
     "lint": "eslint 'src/**/*.ts'",
     "clear": "tsx src/lib/db/queries/clearingData.js",
-    "seed": "tsx src/seed/seed.js"
+    "seed": "tsx src/seed/seed.js",
+    "menu": "tsx src/controllers/menuController.js"
   },
   "keywords": [],
   "author": "",

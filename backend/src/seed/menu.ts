@@ -1,10 +1,10 @@
-type MenuProduct = {
+export type MenuProduct = {
   name: string;
   code?: string;
   category?: string;
   description?: string;
   variants: {
-    name: string;
+    name?: string;
     price: string;
   }[];
 };

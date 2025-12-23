@@ -2,8 +2,8 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin"
+    "username": "koko",
+    "password": "koko"
 }
 
 ###
@@ -11,8 +11,8 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "admin"
+    "username": "koko",
+    "password": "koko"
 }
 
 ###
@@ -56,3 +56,8 @@ Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjk4Yjg4Y
 
 GET http://localhost:3000/api/table/tables/88c80d3f-3e3a-43d3-beb0-0381f0c41335
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjYjk4Yjg4YS0zYzRkLTRkZTctOTAxNy1iMGM2YWYxYjJiYzMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjYwODYyMjQsImV4cCI6MTc2NjA4NjI4NH0._JqySlfYuNatefR4H8kdAzBgPDa1Veu5pTGsIZEU2zQ
+
+###
+
+GET http://localhost:3000/api/menu/menu
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNGFjOGVlMy03YjZhLTRmNjItYjAzNi02NGIyYjFkNTRlMDYiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NjY0NTE2ODAsImV4cCI6MTc2NjQ1MTc0MH0.VDEoI7VIfcElxgZ-zuBsqI7W8vFjfsstQJfj3I6lSUA
