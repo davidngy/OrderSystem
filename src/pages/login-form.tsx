@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import * as authStore from "@/lib/authStore";
 
 export function LoginForm({
   className,
@@ -23,7 +25,8 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const[error, setError] = useState<string | null>(null)
+  const[error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -53,6 +56,8 @@ export function LoginForm({
     }
 
     const result = await response.json();
+    authStore.setToken(result.accessToken)
+    navigate("/table")
     console.log(result)
   }
   return (
