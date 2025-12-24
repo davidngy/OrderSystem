@@ -51,7 +51,7 @@ export async function register(req: Request, res: Response) {
     password: string,
   }
 
-  const role = "admin";
+  const role = "waiter";
   const parameter: parameter = req.body;
   const hashedPassword = await hashPassword(parameter.password);
   const response = await createUser({
