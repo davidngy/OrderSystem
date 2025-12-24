@@ -14,12 +14,15 @@ import {
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   const[name, setName] = useState("");
   const[password, setPassword] = useState("");
   const[confirmedPassword, setConfirmedPassword] = useState("");
   const[error, setError] = useState<string | null>(null);
+   const navigate = useNavigate();
 
   function handleRegister(e: React.FormEvent<HTMLFormElement>) {
    e.preventDefault();
@@ -51,8 +54,10 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
-
+      
       const result = await response.json();
+     
+      navigate("/login")
       console.log(result);
     } catch (error) {
         if (error instanceof Error) {
@@ -106,7 +111,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
               <Field>
                 <Button  type="submit">Create Account</Button>
                 <FieldDescription className="px-6 text-center">
-                  Already have an account? <a href="#">Sign in</a>
+                  Already have an account? <Link to="/login">Sign in</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>
