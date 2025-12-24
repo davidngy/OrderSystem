@@ -22,12 +22,12 @@ export async function login(req: Request, res: Response ) {
 
     if (!isSame) return res.sendStatus(401)
 
-    type response = Omit<NewUser, "hashedPassword"> & { accessToken: string, refreshToken: string };
+    type response = Omit<NewUser, "hashedPassword"> & { accessToken: string };
 
     const token = makeJWT(user, config.api.secret);
     const refreshToken = makeRefreshToken();
 
-    const result = await createRefreshToken({ "token": refreshToken, "userId": user.id, "revokedAt": null, expiresAt: new Date(Date.now() + 60 * 1000), }); //* 24 * 60 * 60 
+    const result = await createRefreshToken({ "token": refreshToken, "userId": user.id, "revokedAt": null, expiresAt: new Date(Date.now() + 60 * 1000 * 24 * 60 * 60 ), });
     if (!result) {
         throw new Error("couldn't save token!")
     }
@@ -39,8 +39,14 @@ export async function login(req: Request, res: Response ) {
         username: user.username,
         role: user.role,
         accessToken: token,
-        refreshToken
     }
+
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
 
     res.json(cleanedUser)
 };
@@ -65,14 +71,10 @@ export async function register(req: Request, res: Response) {
 };
 
 export async function refreshToken(req: Request, res: Response) {
-  type parameter = {
-    refreshToken: string
-  }
+  const refreshToken = req.cookies.refreshToken
 
-  const parameter: parameter = req.body
-
-  if(parameter.refreshToken == null) return res.sendStatus(401);
-  const token = await getRefreshToken(parameter.refreshToken);
+  if(refreshToken == null) return res.sendStatus(401);
+  const token = await getRefreshToken(refreshToken);
 
   if(!token) return res.sendStatus(401);
 
@@ -94,6 +96,7 @@ export async function logout(req: Request, res: Response) {
   const parameter: parameter = req.body;
   if(parameter.refreshToken == null) return res.sendStatus(401);
   const response = await deleteRefreshToken(parameter.refreshToken);
+  res.clearCookie('refreshToken');
   if(!response) return res.sendStatus(401)
   res.sendStatus(204)
 };

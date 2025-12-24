@@ -22,7 +22,7 @@ export async function createTables(req: AuthenticatedRequest, res: Response) {
 
     }
 
-    return res.sendStatus(201);
+    return res.status(201).json({ success: true });
 }
 
 export async function getTables(req: AuthenticatedRequest, res: Response) {
